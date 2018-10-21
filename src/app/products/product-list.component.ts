@@ -10,8 +10,9 @@ import { Component } from "@angular/core";
 export class ProductListComponent{
     productCaption : string = 'Mozk Product List!';
     imageWidth : number = 50;
-    imageMargin : number = 2;
+    imageMargin : number = 2;    
     showImage : boolean = false;
+    listFilter : string = 'card';
     products : any[] = [
         {
             "productId": 1,
