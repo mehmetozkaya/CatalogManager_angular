@@ -27,12 +27,11 @@ export class ProductListComponent implements OnInit {
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
     
-    constructor(private productService : ProductService)    {
-            
+    constructor(private productService : ProductService)    {            
     }
 
     filteredProducts : IProduct[];
-    products : IProduct[] = [];   
+    products : IProduct[];   
 
     toggleImage() : void {
         this.showImage = !this.showImage;
@@ -42,10 +41,12 @@ export class ProductListComponent implements OnInit {
         console.log('I am in on init.');
 
         this.productService.getProducts().subscribe(
-            products => this.products = products,
+            products => {
+                this.products = products,
+                this.filteredProducts = this.products
+            },
             error => this.errorMessage = <any>error
-        );
-        this.filteredProducts = this.products;
+        );        
     }
 
     performFilter(filterBy: string): IProduct[] {
