@@ -38,8 +38,6 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log('I am in on init.');
-
         this.productService.getProducts().subscribe(
             products => {
                 this.products = products,
